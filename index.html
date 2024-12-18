@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>фудПро</title>
+    <title>фудПрофи</title>
     <style>
         .hidden { display: none; }
         .product {
@@ -37,15 +37,20 @@
         }
         .input-group select:focus {
             outline: none;
-            border-color: #5e9ed6;
-            box-shadow: 0 0 5px rgba(94, 158, 214, 0.5);
+            border-color: green;
+            box-shadow: 0 0 5px green;
         }
     </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Первый экран -->
     <div id="screen1">
-        <h2>Заполните информацию</h2>
+        
+        <center>
+            <h2>ФудПрофи - скажем вам кто вы:)</h2>
+            <h2>Заполните информацию</h2>
+        </center>
         <form id="mainForm">
             Пол:
             <select id='gender' required>
@@ -61,22 +66,15 @@
                 <label for="activity">Тип физической нагрузки:</label>
                 <select id="activity" name="activity" required>
                     <option value="" disabled selected>Выберите активность</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
+                    <option value="1">Золик</option>
+                    <option value="2">Нормис</option>
+                    <option value="3">Чиловый чел</option>
+                    <option value="4">Спортик</option>
+                    <option value="5">Качок</option>
+                    <option value="6">Машина</option>
+                    <option value="7">Гигичад</option>
                 </select>
             </div>
-            <!-- Тип физической нагрузки:
-            <select required>
-                <option value="">Выберите...</option>
-                <option value="низкая">Низкая</option>
-                <option value="средняя">Средняя</option>
-                <option value="высокая">Высокая</option>
-            </select> -->
             <br>
             <button type="button" id="toScreen2">Далее</button>
         </form>
@@ -84,16 +82,24 @@
 
     <!-- Второй экран -->
     <div id="screen2" class="hidden">
-        <h2>Выберите продукты</h2>
+        <center>
+            <h2>Выберите продукты</h2>
+        </center>
         <div class="products"></div>
 
         <div id="gramsInput" class="hidden">
-            Введите количество в граммах:
-            <input type="number" id="grams" min="1">
-            <button id="confirmGrams">Подтвердить</button>
+            <center>
+                Введите количество в граммах:
+            </center>
+            <center>
+                <input type="number" id="grams" min="1">
+                <button id="confirmGrams">Подтвердить</button>
+            </center>
         </div>
 
-        <h3>Выбранные продукты:</h3>
+        <center>
+            <h3>Выбранные продукты:</h3>
+        </center>
         <div class="selected-products"></div>
         <button type="button" id="toScreen3">Далее</button>
     </div>
