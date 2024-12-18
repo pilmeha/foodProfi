@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>фудПро</title>
+    <style>
+        .hidden { display: none; }
+        .product {
+            padding: 10px;
+            margin: 5px;
+            background: #ccc;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.3s ease; /* Плавный переход */
+        }
+        .product.selected {
+            background: green;
+            color: white;
+        }
+        #gramsInput { margin-top: 10px; }
+        .selected-products {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+        }
+        .input-group select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        .input-group select:focus {
+            outline: none;
+            border-color: #5e9ed6;
+            box-shadow: 0 0 5px rgba(94, 158, 214, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Первый экран -->
+    <div id="screen1">
+        <h2>Заполните информацию</h2>
+        <form id="mainForm">
+            Пол:
+            <select id='gender' required>
+                <option value="">Выберите...</option>
+                <option value="мужчина">Мужчина</option>
+                <option value="женщина">Женщина</option>
+            </select>
+            <br>
+            Рост: <input type="number" id='height' required><br>
+            Вес: <input type="number" id='weight' required><br>
+            Возраст: <input type="number" id='age' required><br>
+            <div class="input-group">
+                <label for="activity">Тип физической нагрузки:</label>
+                <select id="activity" name="activity" required>
+                    <option value="" disabled selected>Выберите активность</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+            </div>
+            <!-- Тип физической нагрузки:
+            <select required>
+                <option value="">Выберите...</option>
+                <option value="низкая">Низкая</option>
+                <option value="средняя">Средняя</option>
+                <option value="высокая">Высокая</option>
+            </select> -->
+            <br>
+            <button type="button" id="toScreen2">Далее</button>
+        </form>
+    </div>
+
+    <!-- Второй экран -->
+    <div id="screen2" class="hidden">
+        <h2>Выберите продукты</h2>
+        <div class="products"></div>
+
+        <div id="gramsInput" class="hidden">
+            Введите количество в граммах:
+            <input type="number" id="grams" min="1">
+            <button id="confirmGrams">Подтвердить</button>
+        </div>
+
+        <h3>Выбранные продукты:</h3>
+        <div class="selected-products"></div>
+        <button type="button" id="toScreen3">Далее</button>
+    </div>
+
+    <!-- Третий экран -->
+    <div id="screen3" class="hidden">
+        <div id="serverResponse">
+            <h2>Ваш тип:</h2>
+            <div id="category_name"></div>
+            Описание:
+            <div id="category_description"></div>
+            <div id="category_url"></div>
+            Рекомендуемое количество употребляемых калорий:
+            <div id="calorie_standard"></div>
+            Количество калорий, которое вы за сегодня употребили:
+            <div id="user_calorie"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
