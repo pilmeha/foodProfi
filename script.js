@@ -1,3 +1,4 @@
+document.referrerPolicy = 'strict-origin-when-cross-origin';
 document.addEventListener('DOMContentLoaded', () => {
     const screen1 = document.getElementById('screen1');
     const screen2 = document.getElementById('screen2');
@@ -55,6 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const url = 'http://51.250.41.47:8000/api/v1/foods/';
 
         Http.open("GET", url);
+        // Referrer-Policy "strict-origin-when-cross-origin";
+        // Http.setRequestHeader("Accept", "Referrer-Policy 'strict-origin-when-cross-origin';");
         Http.send();
 
         Http.onreadystatechange = function () {
